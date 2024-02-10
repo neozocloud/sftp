@@ -82,7 +82,7 @@ jobs:
 
           labels: ${{ steps.meta.outputs.labels }}
       - name: Test debian image
-        run: tests/run $IMAGE_NAME:debian
+        run: tests/run ghcr.io/${{ github.repository }}:debian
 
       # Build docker image single platform for the tests
       - name: Build alpine image
@@ -101,7 +101,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Test alpine image
-        run: tests/run $IMAGE_NAME:alpine
+        run: tests/run ghcr.io/${{ github.repository }}:alpine
 
       - name: Verify signature
         if: github.ref == 'refs/heads/master'
