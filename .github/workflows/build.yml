@@ -107,7 +107,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: atmoz/git-verify-ref@master
         with:
-          import-github-users: neozocloud
+          import-github-users: StoffelCPR
 
       # Build & push docker image multi-platform
       # note: the linux/amd64 image is not rebuilt, the cache is still present from the previous steps.
