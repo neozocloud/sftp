@@ -104,7 +104,7 @@ jobs:
         run: tests/run ghcr.io/${{ github.repository }}:alpine
 
       - name: Verify signature
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: atmoz/git-verify-ref@master
         with:
           import-github-users: neozocloud
@@ -112,7 +112,7 @@ jobs:
       # Build & push docker image multi-platform
       # note: the linux/amd64 image is not rebuilt, the cache is still present from the previous steps.
       - name: Build & Push debian image to dockerhub
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -137,7 +137,7 @@ jobs:
 
       # Build & push docker image multi-platform
       - name: Build & Push alpine image
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v2
         with:
           context: .
